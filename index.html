@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gizem Göçmen — Veri Analizi & Excel/İstatistik Danışmanlığı</title>
+  <meta name="description" content="Excel, SPSS ve veri analizi danışmanlığı. Raporlama, otomasyon, veri görselleştirme ve eğitim hizmetleri." />
+  <meta property="og:title" content="Gizem Göçmen — Veri Analizi & Excel/İstatistik Danışmanlığı" />
+  <meta property="og:description" content="Excel otomasyonları, SPSS/R analizleri ve şık dashboard’lar. İlk görüşme ücretsiz." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a; --panel:#0b1226; --muted:#94a3b8; --text:#e2e8f0;
+      --brand:#38bdf8; --brand-2:#22d3ee; --accent:#a78bfa; --radius:16px;
+      --shadow:0 10px 30px rgba(2,6,23,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),#0b1022);color:var(--text);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    a{color:var(--brand)}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--brand),var(--brand-2));border:none;color:#001018;font-weight:700;padding:14px 18px;border-radius:999px;cursor:pointer;box-shadow:var(--shadow);text-decoration:none}
+    .btn:hover{filter:brightness(1.05)}
+    header{position:sticky;top:0;background:rgba(11,16,34,.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(148,163,184,.12);z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .brand img{width:34px;height:34px;border-radius:10px;box-shadow:var(--shadow)}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:64px 0}
+    .card{background:linear-gradient(180deg,rgba(15,23,42,.6),rgba(2,6,23,.6));border:1px solid rgba(148,163,184,.15);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero .headline{font-size:42px;line-height:1.1;margin:0 0 18px}
+    .hero p{color:var(--muted);font-size:18px;margin:0 0 26px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+    .badge{border:1px solid rgba(148,163,184,.2);color:#cbd5e1;padding:8px 12px;border-radius:999px;background:rgba(148,163,184,.08)}
+    .glass{padding:18px}
+    .hero-visual{aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;position:relative}
+    .spark{position:absolute;inset:0;background:
+      radial-gradient(800px 400px at 100% -10%, rgba(56,189,248,.18), transparent 45%),
+      radial-gradient(600px 300px at -10% 100%, rgba(167,139,250,.16), transparent 40%),
+      radial-gradient(600px 400px at 50% 10%, rgba(34,211,238,.12), transparent 35%);
+    }
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    h2{font-size:28px;margin:0 0 14px}
+    section{padding:56px 0}
+    .service{padding:20px}
+    .service h3{margin:8px 0 6px}
+    .muted{color:var(--muted)}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .kpi{padding:18px;text-align:center}
+    .kpi strong{font-size:26px}
+    .list{display:grid;gap:10px}
+    .list li{display:flex;align-items:flex-start;gap:10px}
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.35);color:#7dd3fc}
+    .portfolio{display:grid;grid-template-columns:1fr;gap:16px}
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    blockquote{margin:0;padding:18px;border-radius:14px;background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2)}
+    cite{display:block;margin-top:8px;color:#cbd5e1;font-style:normal}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    input, textarea{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(148,163,184,.25);background:#0a0f21;color:var(--text)}
+    input:focus, textarea:focus{outline:2px solid rgba(56,189,248,.4)}
+    footer{padding:28px 0;color:#94a3b8;border-top:1px solid rgba(148,163,184,.15)}
+    .cta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px;border-radius:16px;border:1px solid rgba(148,163,184,.18);background:linear-gradient(90deg,rgba(56,189,248,.12),rgba(167,139,250,.12))}
+    .sr{position:absolute;left:-9999px}
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.kpis{grid-template-columns:1fr 1fr}.portfolio,.testimonials,.contact{grid-template-columns:1fr}.hero .headline{font-size:36px}}
+    @media(max-width:640px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><img src="assets/logo.png" alt="GG logo"/> Gizem Göçmen</div>
+      <nav style="display:flex;gap:18px;align-items:center">
+        <a href="#hizmetler" class="muted">Hizmetler</a>
+        <a href="#portfoy" class="muted">Örnekler</a>
+        <a href="#yorumlar" class="muted">Yorumlar</a>
+        <a href="#iletisim" class="btn">Teklif Al</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero">
+      <div class="card glass">
+        <h1 class="headline">Verinizi <span style="color:var(--brand)">karara</span> dönüştürün.</h1>
+        <p>Eskişehir Osmangazi Üniversitesi <strong>İstatistik</strong> mezunu olarak; Excel otomasyonları, SPSS/R analizleri ve şık dashboard’larla işinizi hızlandırıyorum. İlk görüşme ücretsiz.</p>
+        <div class="badges">
+          <span class="badge">Excel & Google Sheets</span>
+          <span class="badge">SPSS & R</span>
+          <span class="badge">Dashboard & Raporlama</span>
+          <span class="badge">Eğitim & Mentorluk</span>
+        </div>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="#iletisim">Ücretsiz Görüşme Planla</a>
+          <a class="btn" style="background:transparent;border:1px solid rgba(148,163,184,.3);color:#e2e8f0" href="#hizmetler">Hizmetleri Gör</a>
+        </div>
+      </div>
+      <div class="hero-visual card">
+        <div class="spark"></div>
+        <div style="position:absolute;inset:18px;display:grid;gap:12px;grid-template-rows:auto 1fr auto;">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <strong>Otomatik Rapor</strong>
+            <span class="tag">Gerçek Zamanlı</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:12px">
+            <div class="card" style="padding:12px">
+              <div style="height:140px;border-radius:8px;background:linear-gradient(180deg,rgba(56,189,248,.3),rgba(56,189,248,.06))"></div>
+              <p class="muted" style="margin:10px 0 0">Satışlar (Aylık)</p>
+            </div>
+            <div class="card" style="padding:12px;display:grid;gap:10px">
+              <div style="height:64px;border-radius:8px;background:linear-gradient(180deg,rgba(167,139,250,.35),rgba(167,139,250,.06))"></div>
+              <div style="height:64px;border-radius:8px;background:linear-gradient(180deg,rgba(34,211,238,.35),rgba(34,211,238,.06))"></div>
+            </div>
+          </div>
+          <div class="kpis">
+            <div class="card kpi"><strong>3×</strong><div class="muted">Raporlama Hızı</div></div>
+            <div class="card kpi"><strong>-72%</strong><div class="muted">Hata Oranı</div></div>
+            <div class="card kpi"><strong>+28%</strong><div class="muted">Kârlılık İçgörüsü</div></div>
+            <div class="card kpi"><strong>24s</strong><div class="muted">Teslim Süresi</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="hizmetler">
+      <div class="container">
+        <h2>Hizmetler</h2>
+        <p class="muted">KOBİ'ler, girişimler ve akademik çalışmalar için uçtan uca veri çözümleri.</p>
+        <div class="grid">
+          <div class="card service">
+            <span class="tag">Excel Otomasyon</span>
+            <h3>Raporlama & Dashboard</h3>
+            <p class="muted">Pivot, formül ve makrolarla (VBA'sız çözümler dahil) tekrarlı işlemleri otomatikleştirip yönetim panelleri kuruyorum.</p>
+            <ul class="list muted">
+              <li>• Satış & stok raporları</li>
+              <li>• KPI takip tabloları</li>
+              <li>• Google Sheets entegrasyonu</li>
+            </ul>
+          </div>
+          <div class="card service">
+            <span class="tag">İstatistik</span>
+            <h3>SPSS / R Analizleri</h3>
+            <p class="muted">Anket, deney ve iş verilerinde sağlam istatistiksel yöntemlerle güvenilir sonuçlar.</p>
+            <ul class="list muted">
+              <li>• Keşifsel analiz, hipotez testleri</li>
+              <li>• Regresyon, ANOVA, zaman serileri</li>
+              <li>• Akademik rapor formatı</li>
+            </ul>
+          </div>
+          <div class="card service">
+            <span class="tag">Eğitim</span>
+            <h3>Excel & Veri Okuryazarlığı</h3>
+            <p class="muted">Birebir veya ekip eğitimleriyle pratik, iş odaklı içerik ve ödevli programlar.</p>
+            <ul class="list muted">
+              <li>• 6 saatlik hızlandırılmış Excel kampı</li>
+              <li>• Temel → ileri görselleştirme</li>
+              <li>• Dashboard tasarım ilkeleri</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfoy">
+      <div class="container">
+        <h2>Örnek Çalışmalar</h2>
+        <p class="muted">Aşağıdaki çalışmalar gerçek müşteri senaryolarına göre üretilmiş örnek vakalardır. Metodoloji ve çıktılar profesyonel projelerle birebir uyumludur.</p>
+
+        <div class="portfolio">
+          <div class="card" style="padding:16px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <strong>Satış Performans Dashboard (Perakende)</strong>
+              <span class="tag">Excel + Power Query</span>
+            </div>
+            <p class="muted" style="margin:8px 0 12px">Şube bazlı satış & stok verilerini tek sayfada toplayan, otomatik güncellenen bir yönetim paneli.</p>
+            <img src="assets/promo1.png" alt="Satış dashboard görseli" style="width:100%;border-radius:12px;border:1px solid rgba(148,163,184,.25)">
+            <div class="kpis" style="margin-top:12px">
+              <div class="card kpi"><strong>−72%</strong><div class="muted">Manuel rapor hatası</div></div>
+              <div class="card kpi"><strong>3×</strong><div class="muted">Raporlama hızı</div></div>
+              <div class="card kpi"><strong>15dk</strong><div class="muted">Günlük veri yenileme</div></div>
+            </div>
+          </div>
+
+          <div class="card" style="padding:16px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <strong>Müşteri Memnuniyeti Anket Analizi (Hizmet)</strong>
+              <span class="tag">SPSS + R</span>
+            </div>
+            <p class="muted" style="margin:8px 0 12px">n=428 katılımcı ile memnuniyet sürücüleri belirlendi. Güvenilirlik (Cronbach's α), faktör analizi ve çoklu regresyon uygulandı.</p>
+            <img src="assets/promo2.png" alt="Anket analizi görseli" style="width:100%;border-radius:12px;border:1px solid rgba(148,163,184,.25)">
+            <div class="kpis" style="margin-top:12px">
+              <div class="card kpi"><strong>α = 0.87</strong><div class="muted">Ölçek güvenilirliği</div></div>
+              <div class="card kpi"><strong>R² = 0.62</strong><div class="muted">Model açıklayıcılığı</div></div>
+              <div class="card kpi"><strong>+12 puan</strong><div class="muted">NPS artışı (3 ay)</div></div>
+            </div>
+          </div>
+
+          <div class="card" style="padding:16px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <strong>Bütçe & Tahmin Otomasyonu (Google Sheets)</strong>
+              <span class="tag">No‑Code</span>
+            </div>
+            <p class="muted" style="margin:8px 0 12px">CSV/Excel içe aktarımı, veri doğrulama ve pivot raporlarını tek tıkla güncelleyen düşük bakım maliyetli yapı.</p>
+            <img src="assets/promo3.png" alt="Sheets otomasyon görseli" style="width:100%;border-radius:12px;border:1px solid rgba(148,163,184,.25)">
+            <div class="kpis" style="margin-top:12px">
+              <div class="card kpi"><strong>−6 saat/hafta</strong><div class="muted">Operasyon yükü</div></div>
+              <div class="card kpi"><strong>0 kod</strong><div class="muted">Bakım kolaylığı</div></div>
+              <div class="card kpi"><strong>1 tık</strong><div class="muted">Veri yenileme</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="yorumlar">
+      <div class="container">
+        <h2>Yorumlar</h2>
+        <div class="testimonials">
+          <blockquote>
+            “Satış raporlarını otomatikleştirince haftalık 6 saat kazandık.”
+            <cite>— A. Demir, Perakende</cite>
+          </blockquote>
+          <blockquote>
+            “SPSS analiz raporu sayesinde tezimi sorunsuz teslim ettim.”
+            <cite>— B. Yıldız, Yüksek Lisans Öğrencisi</cite>
+          </blockquote>
+          <blockquote>
+            “Excel eğitiminden sonra ekip hataları %70 azaldı.”
+            <cite>— C. Kaya, Operasyon</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="iletisim">
+      <div class="container contact">
+        <div class="card" style="padding:20px">
+          <h2>İletişim</h2>
+          <p class="muted">Tercih ettiğiniz kanaldan ulaşın. 24 saat içinde dönüş yapıyorum.</p>
+          <ul class="list muted" style="margin:12px 0 18px">
+            <li>• E-posta: <a href="mailto:gizemgocmn@gmail.com">gizemgocmn@gmail.com</a></li>
+            <li>• WhatsApp: <a href="https://wa.me/905549759400" target="_blank" rel="noopener">+90 554 975 94 00</a></li>
+          </ul>
+          <form action="mailto:gizemgocmn@gmail.com" method="post" enctype="text/plain">
+            <label class="sr" for="ad">Ad Soyad</label>
+            <input id="ad" name="ad" placeholder="Ad Soyad" required />
+            <label class="sr" for="email">E-posta</label>
+            <input id="email" type="email" name="email" placeholder="E-posta" required />
+            <label class="sr" for="mesaj">Mesajınız</label>
+            <textarea id="mesaj" name="mesaj" rows="4" placeholder="İhtiyacınızı kısaca yazın..." required></textarea>
+            <button class="btn" type="submit">Mesaj Gönder</button>
+          </form>
+        </div>
+        <div class="card" style="padding:20px">
+          <h3>Hakkımda</h3>
+          <p class="muted">Merhaba, ben <strong>Gizem Göçmen</strong>. Eskişehir Osmangazi Üniversitesi <strong>İstatistik</strong> mezunuyum. 
+            Excel, SPSS ve R ile veri analizi, raporlama ve eğitim hizmetleri sunuyorum. 
+            Amacım, veriyi herkes için anlaşılır ve aksiyona dönüşebilir hale getirmek.</p>
+          <div style="height:10px"></div>
+          <div class="badges">
+            <span class="badge">Uzaktan & Yerinde</span>
+            <span class="badge">Sözleşme & Fatura</span>
+            <span class="badge">Gizlilik Anlaşması</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="yil"></span> Gizem Göçmen • Veri Analizi & Excel Danışmanlığı</div>
+      <div style="display:flex;gap:10px">
+        <a class="muted" href="#">KVKK & Gizlilik</a>
+        <a class="muted" href="#">Sözleşme</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('yil').textContent = new Date().getFullYear();</script>
+</body>
+</html>
